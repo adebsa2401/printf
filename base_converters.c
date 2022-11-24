@@ -18,8 +18,7 @@ unsigned char flags, int wid, int prec);
  *
  * Return: The number of bytes stored to the buffer.
  */
-unsigned int convert_sbase(buffer_t *output, long int num, char *base,
-unsigned char flags, int wid, int prec)
+unsigned int convert_sbase(buffer_t *output, long int num, char *base, unsigned char flags, int wid, int prec)
 {
 int size;
 char digit, pad = '0';
@@ -73,8 +72,7 @@ for (size = 0; *(base + size);)
 size++;
 
 if (num >= size)
-ret += convert_ubase(output, num / size, base,
-flags, wid - 1, prec - 1);
+ret += convert_ubase(output, num / size, base, flags, wid - 1, prec - 1);
 
 else
 {
